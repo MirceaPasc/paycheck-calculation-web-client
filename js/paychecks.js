@@ -49,22 +49,17 @@ window.Paycheck = {
 
     getPaychecks: function (){
 
-        var name = $("input[title='Name']").val();
-
-        var data = {
-            'name': name
-        };
 
         $.ajax({
             url: Paycheck.apiUrl + "/paycheck",
-            method: "Get",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify(data)
+            method: "GET"
         }).done(function (response) {
             console.log(response);
 
             Paycheck.displayPaychecks(response.content);
         });
+
+
     },
 
 
@@ -78,10 +73,19 @@ window.Paycheck = {
             Paycheck.createPaycheck();
             return false;
         });
-        
+
+        $("#getPaycheck-by-name").submit(function (event) {
+            event.preventDefault();
+
+            console.log('Submitting get form');
+
+            Paycheck.getPaychecks();
+            return false;
+        });
+
     }
 
 };
 
-Paycheck.getPaychecks();
+//Paycheck.getPaychecks();
 Paycheck.bindEvents();
