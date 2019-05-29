@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Services</title>
+</head>
+<body>
+
+<ul>
+    <li><a href="index.html">Home</a></li>
+    <li class="services">
+        <a href="javascript:void(0)" class="dropbtn">Services</a>
+        <div class="dropdown-content">
+            <a href="calculate.html">Calculate paycheck</a>
+            <a href="find_paychecks.html">Find your paychecks</a>
+        </div>
+    </li>
+</ul>
+
+<form id="create-paycheck">
+    Name:<br>
+    <input type="text" name="name" title="name" placeholder="name"><br>
+    Gross pay:<br>
+    <input type="text" name="gross pay" title="grossPay"><br>
+    <br>
+
+    <input type="submit" name = "Calculate">
+</form>
+
+
+<script src="js/lib/jquery-3.3.1.js"></script>
+<script src="js/paychecks.js"></script>
+
+</body>
+</html>

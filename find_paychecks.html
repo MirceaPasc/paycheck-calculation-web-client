@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    Access-Control-Allow-Origin': '*'
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Find paychecks</title>
+</head>
+<body>
+
+<ul>
+    <li><a href="index.html">Home</a></li>
+    <li class="services">
+        <a href="javascript:void(0)" class="dropbtn">Services</a>
+        <div class="dropdown-content">
+            <a href="calculate.html">Calculate paycheck</a>
+            <a href="find_paychecks.html">Find your paychecks</a>
+        </div>
+    </li>
+</ul>
+
+<form id="getPaycheck-by-name">
+    Name:<br>
+    <input type="text" name="name" title="Name"><br>
+    <br>
+
+    <input type="submit" name = "Submit">
+
+</form>
+
+
+<h2>Paychecks</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name </th>
+        <th>Gross pay</th>
+        <th>income_tax</th>
+        <th>medical_insurance</th>
+        <th>social_security</th>
+        <th>net_pay</th>
+
+    </tr>
+    </thead>
+    <tbody id="paychecks-list">
+
+    </tbody>
+</table>
+
+
+
+<script src="js/lib/jquery-3.3.1.js"></script>
+<script src="js/paychecks.js"></script>
+
+</body>
+</html>
