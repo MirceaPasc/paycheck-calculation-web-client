@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 
@@ -21,7 +21,7 @@
 
 <form id="getPaycheck-by-name">
     Name:<br>
-    <input type="text" name="name" title="Name"><br>
+    <input type="text" name="name" title="name" ><br>
     <br>
 
     <input type="submit" name = "Submit">
@@ -31,19 +31,19 @@
 
 <h2>Paychecks</h2>
 
-<table>
+<table id="paychecks-list">
     <thead>
     <tr>
-        <th>Name </th>
-        <th>Gross pay</th>
-        <th>income_tax</th>
-        <th>medical_insurance</th>
-        <th>social_security</th>
-        <th>net_pay</th>
+        <th class="name">Name </th>
+        <th class="grossPay">Gross pay</th>
+        <th class="income_tax">income_tax</th>
+        <th class="medical_insurance">medical_insurance</th>
+        <th class="social_security">social_security</th>
+        <th class="net_pay">net_pay</th>
 
     </tr>
     </thead>
-    <tbody id="paychecks-list">
+    <tbody >
 
     </tbody>
 </table>

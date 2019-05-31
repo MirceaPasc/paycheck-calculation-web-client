@@ -43,15 +43,17 @@ window.Paycheck = {
         paychecks.forEach(paycheck => rows += Paycheck.getPaycheckRow(paycheck));
         console.log(rows);
 
-        $('#paychecks-list').html(rows);
+        $('#paychecks-list tbody').html(rows);
 
     },
 
     getPaychecks: function (){
 
+        var name = $("input[title='name']").val();
+
 
         $.ajax({
-            url: Paycheck.apiUrl + "/paycheck",
+            url: Paycheck.apiUrl + "/paycheck?name=" + name,
             method: "GET"
         }).done(function (response) {
             console.log(response);

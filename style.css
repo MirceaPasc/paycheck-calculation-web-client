@@ -73,6 +73,22 @@ body {
 #paychecks-list {
     color: darkgrey;
     display: block;
-    font-family: Broadway;
+    font-family: "BankGothic Md BT";
+}
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;}
+
+td, th {
+	border: 1px solid #333333;
+	text-align: left;
+	padding: 8px;
+	background-color: #dddddd;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
 }
 
