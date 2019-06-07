@@ -17,8 +17,12 @@ window.Paycheck = {
             data: JSON.stringify(data)
         }).done(function (response) {
             console.log(response);
+
+            Paycheck.getPaycheck(response.id);
+
         });
     },
+
 
 
         getPaycheckRow: function (paycheck) {
@@ -47,6 +51,31 @@ window.Paycheck = {
 
     },
 
+    displayPaycheck: function(paychecks){
+        var rows = paychecks + Paycheck.getPaycheckRow(paychecks);
+
+        console.log('Displaying items.');
+        console.log(paychecks);
+
+        console.log(rows);
+
+        $('#paycheck-list tbody').html(rows);
+
+    },
+
+
+
+    getPaycheck: function (id){
+        $.ajax({
+            url: Paycheck.apiUrl + "/paycheck/" + id,
+            method: "GET"
+        }).done(function (response) {
+            console.log("Getting paycheck");
+            console.log(response);
+            Paycheck.displayPaycheck(response);
+        });
+    },
+
     getPaychecks: function (){
 
         var name = $("input[title='name']").val();
@@ -61,7 +90,6 @@ window.Paycheck = {
             Paycheck.displayPaychecks(response.content);
         });
 
-
     },
 
 
@@ -69,12 +97,12 @@ window.Paycheck = {
 
         $("#create-paycheck").submit(function (event) {
             event.preventDefault();
-
             console.log('Submitting form');
 
             Paycheck.createPaycheck();
             return false;
         });
+
 
         $("#getPaycheck-by-name").submit(function (event) {
             event.preventDefault();
@@ -88,6 +116,4 @@ window.Paycheck = {
     }
 
 };
-
-//Paycheck.getPaychecks();
 Paycheck.bindEvents();

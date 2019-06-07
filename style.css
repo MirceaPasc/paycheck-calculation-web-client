@@ -71,7 +71,12 @@ body {
 }
 
 #paychecks-list {
-    color: darkgrey;
+    color: black;
+    display: block;
+    font-family: "BankGothic Md BT";
+}
+#paycheck-list {
+    color: black;
     display: block;
     font-family: "BankGothic Md BT";
 }
