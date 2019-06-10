@@ -5,10 +5,12 @@ window.Paycheck = {
 
         var name = $("input[title='name']").val();
         var grossPay = $("input[title='grossPay']").val();
+        var date = $("input[title='date']").val();
 
         var data = {
             'name': name,
-            'grossPay': grossPay
+            'grossPay': grossPay,
+            'date': date
         };
         $.ajax({
             url: Paycheck.apiUrl + "/paycheck",
@@ -26,6 +28,7 @@ window.Paycheck = {
 
 
         getPaycheckRow: function (paycheck) {
+       var date = new Date(paycheck.date).toLocaleDateString();
 
             return `<tr>
      <td class="name">${paycheck.name}</td>
@@ -34,6 +37,7 @@ window.Paycheck = {
      <td class="medical_insurance">${paycheck.medicalInsurance}</td>
      <td class="social_security">${paycheck.socialSecurity}</td>
      <td class="net_pay">${paycheck.netPay}</td    
+     <td class="paycheck_date">${date}</td  
      </tr>`
         },
 
@@ -93,6 +97,7 @@ window.Paycheck = {
     },
 
 
+
     bindEvents: function () {
 
         $("#create-paycheck").submit(function (event) {
@@ -112,6 +117,7 @@ window.Paycheck = {
             Paycheck.getPaychecks();
             return false;
         });
+
 
     }
 
