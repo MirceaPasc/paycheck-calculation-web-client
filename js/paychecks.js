@@ -28,16 +28,18 @@ window.Paycheck = {
 
 
         getPaycheckRow: function (paycheck) {
-       var date = new Date(paycheck.date).toLocaleDateString();
+       var date = new Date(paycheck.date).toLocaleDateString('ro-RO');
 
             return `<tr>
-     <td class="name">${paycheck.name}</td>
-     <td class="grossPay">${paycheck.grossPay}</td>
-     <td class="income_tax">${paycheck.incomeTax}</td>
-     <td class="medical_insurance">${paycheck.medicalInsurance}</td>
-     <td class="social_security">${paycheck.socialSecurity}</td>
-     <td class="net_pay">${paycheck.netPay}</td    
-     <td class="paycheck_date">${date}</td  
+     <td class="name" style="color: blue">${paycheck.name}</td>
+     <td class="grossPay" style="color: cornflowerblue">${paycheck.grossPay}</td>
+     <td class="income_tax" style="color: red">${paycheck.incomeTax}</td>
+     <td class="medical_insurance" style="color: red">${paycheck.medicalInsurance}</td>
+     <td class="social_security" style="color: red">${paycheck.socialSecurity}</td>
+     <td class="net_pay" style="color: green">${paycheck.netPay}</td>    
+     <td class="paycheck_date" style="color: blue">${date}</td>  
+     <td><a href="#" class="fa fa-trash delete" data-id="${paycheck.id}"></a> </td>
+
      </tr>`
         },
 
@@ -96,6 +98,28 @@ window.Paycheck = {
 
     },
 
+    deletePaychecks: function(id){
+        $.ajax({
+            url: Paycheck.apiUrl + '/paycheck/' + id,
+            method: "DELETE"
+        }).done(function (response) {
+            console.log(response);
+
+            Paycheck.getPaychecks();
+        });
+    },
+
+    deletePaycheck: function(id){
+        $.ajax({
+            url: Paycheck.apiUrl + '/paycheck/' + id,
+            method: "DELETE"
+        }).done(function (response) {
+            console.log(response);
+
+            location.reload(true);
+        });
+    },
+
 
 
     bindEvents: function () {
@@ -118,6 +142,17 @@ window.Paycheck = {
             return false;
         });
 
+        $('#paychecks-list tbody').delegate('.delete','click', function () {
+            var id = $(this).data('id');
+
+            Paycheck.deletePaychecks(id);
+        });
+
+        $('#paycheck-list tbody').delegate('.delete','click', function () {
+            var id = $(this).data('id');
+
+            Paycheck.deletePaycheck(id);
+        })
 
     }
 

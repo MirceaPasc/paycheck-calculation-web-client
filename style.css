@@ -72,12 +72,10 @@ body {
 
 #paychecks-list {
     color: black;
-    display: block;
     font-family: "BankGothic Md BT";
 }
 #paycheck-list {
     color: black;
-    display: block;
     font-family: "BankGothic Md BT";
 }
 
@@ -88,9 +86,14 @@ table {
 
 td, th {
 	border: 1px solid #333333;
-	text-align: left;
+	text-align: center;
 	padding: 8px;
 	background-color: #dddddd;
+}
+
+caption {
+	color: darkgrey;
+	font-size: larger;
 }
 
 tr:nth-child(even) {
